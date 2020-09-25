@@ -15,6 +15,49 @@ class Categoria(models.Model):
     def __str__(self):
         return f'{self.codigo}: {self.nombre}'
 
+class DetallePedido(models.Model):
+
+    pedido = models.ForeignKey('Pedido', on_delete=models.SET_NULL, null=True)
+    producto = models.ForeignKey('Producto', on_delete=models.SET_NULL, null=True)
+
+    cantidad = models.FloatField()
+    subtotal = models.FloatField()
+
+    def __str__(self):
+        return f'{self.subtotal}'
+
+class Usuario (models.Model):
+    email = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
+    documentoIdentidad = models.CharField(max_length=8)
+    nombres = models.CharField(max_length=20)
+    apellidoPaterno = models.CharField(max_length=20)
+    apellidoMaterno = models.CharField(max_length=20)
+    genero = models.CharField(max_length=1)
+    fechaNacimiento = models.DateField
+    fechaCreacion = models.DateField
+    estado = models.TextField()
+
+    def __str__(self):
+        return f'{self.documentoIdentidad}'
+
+class Cliente(models.Model):
+
+    usuario = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True)
+    preferencias = list()
+
+    def __str__(self):
+        return f'{self.preferencias}'
+
+class Colaborador(models.Model):
+
+    reputacion = models.FloatField()
+    usuario = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True)
+    coberturaEntrega = models.ForeignKey('Localizacion', on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f'{self.reputacion}'
+
 class Localizacion(models.Model):
   distrito = models.CharField(max_length=20)
   provincia = models.CharField(max_length=20)
@@ -22,6 +65,19 @@ class Localizacion(models.Model):
 
   def __str__(self):
         return f'{self.distrito}, {self.provincia}, {self.departamento}'
+
+class Pedido(models.Model):
+  fechaCreacion = models.DateField
+  estado = models.CharField(max_length=10)
+  fechaEntrega = models.DateField
+  direccionEntrega = models.TextField()
+  cliente = models.ForeignKey('Cliente', on_delete=models.SET_NULL, null=True)
+  repartidor = models.ForeignKey('Colaborador', on_delete=models.SET_NULL, null=True)
+  ubicacion = models.ForeignKey('Localizacion', on_delete=models.SET_NULL, null=True)
+  tarifa = models.FloatField()
+
+  def __str__(self):
+        return f'{self.tarifa}'
 
 class Producto(models.Model):
     # Relaciones
