@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> LinioExp </h1>
+    <hr>
+    <h3> Pedidos </h3>
+    <ul>
+      {% for pedido in object_list %}
+        <li>
+          <a href="{% url 'pedido-detail' pedido.pk %}">
+            {{ pedido.fechaCreacion }}
+          </a>
+          - {{ pedido.Tarifa }}
+        </li>
+      {% empty %}
+        <li>Aun no hay pedidos registrados.</li>
+      {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+      <li> <a href="{% url 'home' %}">Inicio</a> </li>
+    </ul>
+  </body>
+</html>

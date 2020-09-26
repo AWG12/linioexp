@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> Linio Exp </h1>
+    <hr>
+    <h3> {{ object.razon_social }} </h3>
+    <ul>
+      <li><strong>RUC:</strong> {{ object.ruc }}</li>
+      <li><strong>Razon Social:</strong> {{ object.razon_social }}</li>
+      <li><strong>Telefono:</strong> {{ object.telefono }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="{% url 'proveedor-list' %}">Ver Lista de Proveedores</a></li>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+  </body>
+</html>

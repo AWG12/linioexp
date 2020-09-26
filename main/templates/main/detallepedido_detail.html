@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> Linio Exp </h1>
+    <hr>
+    <h3> {{ object.pedido }} </h3>
+    <ul>
+      <li><strong>Pedido:</strong> {{ object.pedido }}</li>
+      <li><strong>Producto:</strong> {{ object.producto }}</li>
+      <li><strong>Cantidad:</strong> {{ object.cantidad }}</li>
+      <li><strong>Subtotal:</strong> {{ object.subtotal }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="{% url 'detallepedido-list' %}">Ver Lista de Detalles de Pedido</a></li>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+  </body>
+</html>

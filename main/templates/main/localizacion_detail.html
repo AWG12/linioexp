@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> Linio Exp </h1>
+    <hr>
+    <h3> {{ object.distrito }} </h3>
+    <ul>
+      <li><strong>Distrito:</strong> {{ object.distrito }}</li>
+      <li><strong>Provincia:</strong> {{ object.provincia }}</li>
+      <li><strong>Departamento:</strong> {{ object.departamento }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="{% url 'localizaciones-list' %}">Ver Lista de Localizaciones</a></li>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+  </body>
+</html>

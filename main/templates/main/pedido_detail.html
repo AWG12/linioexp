@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> Linio Exp </h1>
+    <hr>
+    <h3> {{ object.tarifa }} </h3>
+    <ul>
+      <li><strong>Fecha de Creacion:</strong> {{ object.fechaCreacion }}</li>
+      <li><strong>Estado:</strong> {{ object.estado }}</li>
+      <li><strong>Fecha de Entrega:</strong> {{ object.fechaEntrega }}</li>
+      <li><strong>Direccion de Entrega:</strong> {{ object.direccionEntrega }}</li>
+      <li><strong>Cliente:</strong> {{ object.cliente }}</li>
+      <li><strong>Repartidor:</strong> {{ object.repartidor }}</li>
+      <li><strong>Ubicacion:</strong> {{ object.ubicacion }}</li>
+      <li><strong>Tarifa:</strong> {{ object.tarifa }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="{% url 'pedido-list' %}">Ver Lista de Pedidos</a></li>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+  </body>
+</html>

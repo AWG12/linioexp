@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> LinioExp </title>
+  </head>
+  <body>
+    <h1> Linio Exp </h1>
+    <hr>
+    <h3> {{ object.nombre }} </h3>
+    <ul>
+      <li><strong>Codigo:</strong> {{ object.codigo }}</li>
+      <li><strong>Nombre:</strong> {{ object.nombre }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="{% url 'categorias-list' %}">Ver Lista de Categorias</a></li>
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+    </ul>
+  </body>
+</html>
