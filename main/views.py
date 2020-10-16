@@ -31,7 +31,7 @@ class HomePageView(TemplateView):
 class RegistrationView(FormView):
     template_name = 'registration/register.html'
     form_class = UserForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
 
