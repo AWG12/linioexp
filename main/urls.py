@@ -3,7 +3,7 @@ from django.urls import path
 from main import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.HomePageView.as_view(), name='home'),
     path('productos', views.ProductListView.as_view(), name='product-list'),
     path('productos/<int:pk>', views.ProductDetailView.as_view(), name='product-detail'),
 
@@ -22,13 +22,17 @@ urlpatterns = [
     path('pedidos', views.PedidoListView.as_view(), name='pedido-list'),
     path('pedidos/<int:pk>', views.PedidoDetailView.as_view(), name='pedido-detail'),
 
-    path('usuarios', views.UsuarioListView.as_view(), name='usuario-list'),
-    path('usuarios/<int:pk>', views.UsuarioDetailView.as_view(), name='usuario-detail'),
+    path('registro/', views.RegistrationView.as_view(), name='register'),
 
-    path('clientes', views.ClienteListView.as_view(), name='clientes-list'),
-    path('clientes/<int:pk>', views.ClienteDetailView.as_view(), name='clientes-detail'),
+    path('add_to_cart/<int:product_pk>', views.AddToCartView.as_view(), name='add-to-cart'),
 
-    path('colaboradores', views.ColaboradorListView.as_view(), name='colaborador-list'),
-    path('colaboradores/<int:pk>', views.ColaboradorDetailView.as_view(), name='colaborador-detail'),
+    path('remove_from_cart/<int:product_pk>', views.RemoveFromCartView.as_view(), name='remove-from-cart'),
+
+    path('carrito/', views.PedidoDetailView.as_view(), name='pedido-detail'),
+
+    path('checkout/<int:pk>', views.PedidoUpdateView.as_view(), name='pedido-update'),
+
+    path('payment/', views.PaymentView.as_view(), name='payment'),
+
+    path('complete_payment/', views.CompletePaymentView.as_view(), name='complete-payment'),
 ]
-

@@ -12,9 +12,9 @@
       {% for pedido in object_list %}
         <li>
           <a href="{% url 'pedido-detail' pedido.pk %}">
-            {{ pedido.fechaCreacion }}
+            {{ pedido.fecha_creacion }}
           </a>
-          - {{ pedido.Tarifa }}
+          - {{ pedido.tarifa }}
         </li>
       {% empty %}
         <li>Aun no hay pedidos registrados.</li>
