@@ -154,7 +154,7 @@ class RemoveFromCartView(View):
         # Obtén el producto que queremos añadir al carrito
         producto = Producto.objects.get(pk=product_pk)
         # Obtén/Crea un/el pedido en proceso (EP) del usuario
-        pedido, _  = Pedido.objects.get_or_create(cliente=cliente, estado='EP')
+        pedido= Pedido.objects.get(cliente=cliente, estado='EP')
         # Obtén/Crea un/el detalle de pedido
         detalle_pedido = DetallePedido.objects.get(
             producto=producto,
@@ -215,7 +215,7 @@ class PaymentView(TemplateView):
 class CompletePaymentView(View):
     def get(self, request):
         # Obten el cliente
-        user_profile = Profile.objects.get(user=request.user)
+        user_profile = Profile.objects.get(user=self.request.user)
         cliente = Cliente.objects.get(user_profile=user_profile)
         # Obtén/Crea un/el pedido en proceso (EP) del usuario
         pedido = Pedido.objects.get(cliente=cliente, estado='EP')

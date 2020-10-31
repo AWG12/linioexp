@@ -10,12 +10,12 @@
       <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
     </ul>
     <div class="block">
-    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class='button is-primary'>
-      Añadir al carrito
-    </a>
-    <a href="{% url 'pedido-detail' %}" class='button'>
-      Ver carrito
-    </a>
+        <a href="{% url 'add-to-cart' product_pk=object.pk %}" class='button is-primary'>
+          Añadir al carrito
+        </a>
+        <a href="{% url 'pedido-detail' %}" class='button'>
+          Ver carrito
+        </a>
     </div>
     <hr>
     <div class="content">
