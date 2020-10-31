@@ -93,6 +93,10 @@ class Producto(models.Model):
 
         return f'{codigo_categoria}-{codigo_producto}'
 
+class ProductoImage(models.Model):
+    product = models.ForeignKey('Producto', on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to="products", null=True, blank=True)
+
 class Pedido(models.Model):
     # Relaciones
     cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)

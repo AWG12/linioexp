@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,4 +127,16 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'ab1c78bfe04e0a'
 EMAIL_HOST_PASSWORD = '951d82ca3c660e'
 EMAIL_PORT = '2525'
+
+import os
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = 'MXosXlqPG4YAAAAAAAAAAW9jnfKovPB1A8kCGHPWmxMl0ogu0NKJqoIZIrguYxS8'
+
+# Django Heroku
+import django_heroku
+django_heroku.settings(locals())
 
