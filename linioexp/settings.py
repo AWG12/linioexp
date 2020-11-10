@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import django_heroku
 
 from pathlib import Path
 
@@ -137,6 +138,6 @@ DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DROPBOX_OAUTH2_TOKEN = 'MXosXlqPG4YAAAAAAAAAAW9jnfKovPB1A8kCGHPWmxMl0ogu0NKJqoIZIrguYxS8'
 
 # Django Heroku
-import django_heroku
+
 django_heroku.settings(locals())
 
