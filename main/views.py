@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.http import HttpResponse
 
 from django.views.generic import ListView, DetailView, FormView, TemplateView, View, UpdateView
@@ -128,7 +130,7 @@ class CategoriaListView(ListView):
 class CategoriaDetailView(DetailView):
     model = Categoria
 
-class AddToCartView(View):
+class AddToCartView(LoginRequiredMixin,View):
     def get(self, request, product_pk):
         # Obten el cliente
         user_profile = Profile.objects.get(user=request.user)
